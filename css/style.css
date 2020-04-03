@@ -7,10 +7,10 @@
     --font: "JetBrains Mono";
     --background: #282828;
     --foreground: #ebdbb2;
-    --magenta: #b06698;
+    --gb_magenta: #b06698;
     --red: #cc241d;
-    --orange: #d65d03;
-    --green: #98971a;
+    --gb_orange: #d65d03;
+    --gb_green: #98971a;
     --branch: 1px solid #ebdbb2;
 }
 
@@ -52,11 +52,11 @@ main {
 }
 
 span.user {
-    color: var(--green);
+    color: var(--gb_green);
 }
 
 span.host {
-    color: var(--magenta)
+    color: var(--gb_magenta)
 }
 
 h1 {
@@ -65,7 +65,7 @@ h1 {
     font-family: var(--font);
     font-size: 1rem;
     font-weight: normal;
-    color: var(--orange);
+    color: var(--gb_orange);
     cursor: pointer;
     user-select: none;
 }
@@ -130,7 +130,7 @@ a {
 a:hover,
 a:focus {
     color: var(--background);
-    background: var(--orange);
+    background: var(--gb_orange);
 }
 
 form h1 {
