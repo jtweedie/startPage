@@ -1,16 +1,17 @@
 @font-face {
-    font-family: "Roboto Mono";
-    src: url("../fonts/roboto-mono-medium.ttf");
+    font-family: "JetBrainsMono";
+    src: url("../fonts/JetBrainsMono-Regular.ttf");
 }
 
 :root {
-    --font: "Roboto Mono";
-    --background: #0f0e17;
-    --foreground: #fffffe;
-    --pink: #e53170;
-    --red: #f25f4c;
-    --orange: #ff8906;
-    --branch: 1px solid #a7a9be;
+    --font: "JetBrains Mono";
+    --background: #282828;
+    --foreground: #ebdbb2;
+    --magenta: #b06698;
+    --red: #cc241d;
+    --orange: #d65d03;
+    --green: #98971a;
+    --branch: 1px solid #ebdbb2;
 }
 
 html {
@@ -50,8 +51,12 @@ main {
     padding: 1.5rem 0 0.3125rem;
 }
 
-span {
-    color: var(--pink);
+span.user {
+    color: var(--green);
+}
+
+span.host {
+    color: var(--magenta)
 }
 
 h1 {
@@ -60,7 +65,7 @@ h1 {
     font-family: var(--font);
     font-size: 1rem;
     font-weight: normal;
-    color: var(--red);
+    color: var(--orange);
     cursor: pointer;
     user-select: none;
 }
@@ -147,29 +152,13 @@ form h1 {
     resize: none;
 }
 
-li::before {
+li::before, li {
     transition: 0.125s width ease-out;
 }
 
 li > h1 {
     transition: 0.125s transform ease-out;
 }
-
-li.hideChildren::before {
-    width: 0.25rem;
-}
-
-li.hideChildren > h1 {
-    transform: translateX(-0.5rem);
-}
-
-/* li:hover::before {
-    width: 1rem;
-}
-
-li:hover > h1 {
-    transform: translateX(0.25rem);
-} */
 
 /* Uitll */
 .noTransition * {

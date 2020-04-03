@@ -1,201 +1,46 @@
 const Config = {
-    name: "user",
+    name: "alex",
+    host: "gus",
     scale: 1,
     Links2: [{
-            name: "site",
-            links: [{
-                    name: "link",
-                    url: "https://www.example.com"
-                },
-                {
-                    name: "site",
-                    links: [{
-                            name: "link",
-                            url: "https://www.example.com"
-                        },
-                        {
-                            name: "link",
-                            url: "https://www.example.com"
-                        }
-                    ]
-                },
-            ]
+        name: "Clemson",
+        links: [{
+            name: "iRoar",
+            url: "https://iroar.app.clemson.edu/dashboard/"
         },
         {
-            name: "site",
-            links: [{
-                    name: "link",
-                    url: "https://www.example.com"
-                },
-                {
-                    name: "link",
-                    url: "https://www.example.com"
-                },
-                {
-                    name: "link",
-                    url: "https://www.example.com"
-                },
-            ]
-        },
-        {
-            name: "site0",
-            links: [{
-                    name: "link",
-                    url: "https://www.example.com"
-                },
-                {
-                    name: "site1",
-                    links: [{
-                            name: "site2",
-                            links: [{
-                                    name: "link",
-                                    url: "https://www.example.com"
-                                },
-                                {
-                                    name: "link",
-                                    url: "https://www.example.com"
-                                },
-                                {
-                                    name: "link",
-                                    url: "https://www.example.com"
-                                },
-                            ]
-                        },
-                        {
-                            name: "link",
-                            url: "https://www.example.com"
-                        },
-                        {
-                            name: "link",
-                            url: "https://www.example.com"
-                        },
-                    ]
-                },
-                {
-                    name: "site1",
-                    links: [{
-                            name: "link",
-                            url: "https://www.example.com"
-                        },
-                        {
-                            name: "link",
-                            url: "https://www.example.com"
-                        },
-                        {
-                            name: "site2",
-                            links: [{
-                                    name: "link",
-                                    url: "https://www.example.com"
-                                },
-                                {
-                                    name: "link",
-                                    url: "https://www.example.com"
-                                },
-                                {
-                                    name: "site3",
-                                    links: [{
-                                            name: "link",
-                                            url: "https://www.example.com"
-                                        },
-                                        {
-                                            name: "link",
-                                            url: "https://www.example.com"
-                                        },
-                                        {
-                                            name: "link",
-                                            url: "https://www.example.com"
-                                        },
-                                    ]
-                                },
-                            ]
-                        },
-                        {
-                            name: "link",
-                            url: "https://www.example.com"
-                        },
-                    ]
-                },
-                {
-                    name: "link",
-                    url: "https://www.example.com"
-                },
-                {
-                    name: "site",
-                    links: [{
-                            name: "link",
-                            url: "https://www.example.com"
-                        },
-                        {
-                            name: "link",
-                            url: "https://www.example.com"
-                        },
-                        {
-                            name: "site",
-                            links: [{
-                                    name: "link",
-                                    url: "https://www.example.com"
-                                },
-                                {
-                                    name: "link",
-                                    url: "https://www.example.com"
-                                },
-                                {
-                                    name: "site",
-                                    links: [{
-                                            name: "link",
-                                            url: "https://www.example.com"
-                                        },
-                                        {
-                                            name: "link",
-                                            url: "https://www.example.com"
-                                        },
-                                        {
-                                            name: "link",
-                                            url: "https://www.example.com"
-                                        },
-                                    ]
-                                },
-                            ]
-                        },
-                        {
-                            name: "link",
-                            url: "https://www.example.com"
-                        },
-                    ]
-                },
-                {
-                    name: "link",
-                    url: "https://www.example.com"
-                },
-            ]
-        },
-        {
-            name: "site",
-            links: [{
-                    name: "link",
-                    url: "https://www.example.com"
-                },
-                {
-                    name: "link",
-                    url: "https://www.example.com"
-                },
-                {
-                    name: "link",
-                    url: "https://www.example.com"
-                },
-                {
-                    name: "link",
-                    url: "https://www.example.com"
-                },
-            ]
-        },
+            name: "email",
+            url: "https://g.clemson.edu"
 
-    ]
+        },
+        {
+            name: "canvas",
+            url: "https://clemson.instructure.com/"
+        }],
+        hidden: false
+    },
+    {
+        name: "Time Wasters",
+        links: [{
+            name: "Unix Screenshots",
+            url: "https://reddit.com/r/unixporn"
+        },
+        {
+            name: "Linux",
+            url: "https://reddit.com/r/linux"
+        },
+        {
+            name: "YouTube",
+            url: "https://youtube.com/feed/subscriptions"
+        }],
+        hidden: true,
+    }],
 }
 
 const Main = (() => {
     const list = document.getElementById("list");
     const names = document.querySelectorAll("[data-Name]");
+    const hosts = document.querySelectorAll("[data-Host]")
     const search = document.getElementById("search");
     const main = document.getElementsByTagName("main")[0];
     const html = document.getRootNode().children[0];
@@ -225,18 +70,19 @@ const Main = (() => {
     const createList = ({
         name,
         links,
-        url
+        url,
+        hidden,
     }) => `
-        <li>
+        <li ` + (hidden ? `class="hideChildren"` : ``) + `>
             ${url ?
             `<a href="${url}">${name}</a>` :
             `<h1 onclick="Main.toggleExpand(this)">${name}</h1>
-            <ul class="ulWrap">
+            <ul class="ulWrap" style="--height:81px">
                 ${links.map(createList).join("")}
             </ul>`
 
             }
-        </li> 
+        </li>
     `;
 
     const _getLevel = level => list.querySelectorAll("#list" + " > li > ul".repeat(level) + "> li > h1");
@@ -244,7 +90,7 @@ const Main = (() => {
     /**
      * TODO
      * @param {Array} arr [number, index]
-     * @param {number} target 
+     * @param {number} target
      */
     const _coverNumber = (arr, target) => {
         let resArr = [...arr];
@@ -298,9 +144,11 @@ const Main = (() => {
 
     const init = () => {
         html.style.fontSize = Config.scale * 20 + "px";
-
         names.forEach(el => {
             el.innerText = Config.name;
+        });
+        hosts.forEach(el => {
+            el.innerText = Config.host;
         });
 
         list.innerHTML = Config.Links2.map(createList).join("");
