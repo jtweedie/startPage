@@ -4,7 +4,7 @@
 }
 
 :root {
-    --font: "JetBrains Mono";
+    --font: "JetBrains Mono", "monospace";
     --background: #282828;
     --foreground: #ebdbb2;
     --gb_magenta: #b06698;
