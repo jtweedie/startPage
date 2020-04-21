@@ -1,33 +1,32 @@
 const Config = {
-    name: "alex",
-    host: "gus",
+    name: "jtweedie",
+    host: "HomeLab",
     scale: 1,
     Links2: [{
-        name: "Clemson",
+        name: "HomeLab",
         links: [{
-            name: "iRoar",
-            url: "https://iroar.app.clemson.edu/dashboard/"
+            name: "unRaidMini",
+            url: "https://unraidmini.local"
         },
         {
-            name: "email",
-            url: "https://g.clemson.edu"
-
+            name: "PiHole",
+            url: "https://pihole.local"
         },
         {
-            name: "canvas",
-            url: "https://clemson.instructure.com/"
+            name: "unRaid",
+            url: "https://unraid.local"
         }],
         hidden: false
     },
     {
         name: "Time Wasters",
         links: [{
-            name: "Unix Screenshots",
-            url: "https://reddit.com/r/unixporn"
+            name: "Inoreader",
+            url: "https://www.inoreader.com"
         },
         {
-            name: "Linux",
-            url: "https://reddit.com/r/linux"
+            name: "Reddit",
+            url: "https://reddit.com/"
         },
         {
             name: "YouTube",
